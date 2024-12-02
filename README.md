@@ -1,2 +1,19 @@
-# Indicium_Lighthouse_Challenge
-Desafio com o banco de Dados Northwind, desenvolvido com Postgres e DBT
+Baseado em um desafio, resolvi realizar esse projeto e desenvolver em DBT-Core. 
+
+1) O primeiro desafio, foi a construção do Docker-Compose com as ferramentas Postgres e Pgadmin. Já com a inicialização do projeto, utilizando o arquivo .SQL armazenado na pasta northwind_data; 
+
+``` bash: 
+dbt debug
+```
+
+2) Depois disso, testado, adicionei a imagem do DBT-Core e fiz as configurações para que conversasse com o Postgres local. Realizando o teste de conexão, criando a tabela "order_details", utilizando o arquivo .CSV contido na pasta Seed, através do arquivo Dockerfile.yml; 
+
+``` bash: 
+dbt seed
+```
+
+3) Como quis dividir em três schemas diferentes, para fins de organização e criar um DW com camadas medalhão. Tive que alterar o código .sql para que o nome do Schema padrão "public" fosse renomeado para "raw" e assim conseguir finalizar a primeira camada. Tendo criado a maioria das tabelas utilizando o arquivo .sql e complementando as tabelas com uma a mais vindo do arquivo .csv;
+
+``` sql: 
+ALTER SCHEMA public RENAME TO raw
+```

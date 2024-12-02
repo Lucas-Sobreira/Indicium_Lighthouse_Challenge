@@ -1,0 +1,57 @@
+version: '3'
+
+networks:
+  net:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres   
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./data/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql  # Caminho correto
+      - ./data:/var/lib/postgresql/data  # Persistência de dados
+    ports:
+      - 5432:5432
+    networks:
+      - net
+      
+  pgadmin:
+    image: dpage/pgadmin4    
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - 8080:80
+    depends_on:
+      - postgres
+    networks:
+      - net
+
+  dbt-core:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DBT_PROFILES_DIR: /northwind
+      DB_HOST_DEV: postgres
+      DB_PORT_DEV: 5432
+      DB_NAME_DEV: northwind
+      DB_USER_DEV: postgres
+      DB_PASS_DEV: postgres
+      DB_SCHEMA_DEV: public
+      DB_THREADS_DEV: 1
+      DB_TYPE_DEV: postgres
+    volumes:
+      - .:/user/app
+      - ./dbt/target:/usr/app/dbt/target
+      - ./northwind/profiles.yml:/northwind/profiles.yml
+    ports: 
+      - 8081:8081
+    depends_on:
+      - postgres
+    networks:
+      - net

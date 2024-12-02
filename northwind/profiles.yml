@@ -1,0 +1,12 @@
+northwind:
+  target: dev
+  outputs:
+    dev:
+      dbname: postgres
+      host: postgres
+      pass: postgres
+      port: 5432
+      schema: raw
+      threads: 1
+      type: postgres
+      user: postgres

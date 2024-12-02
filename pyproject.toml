@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "code-challenge"
+version = "0.1.0"
+description = ""
+authors = ["Lucas-Sobreira <lucas-andrade2011@live.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+dbt-postgres = "^1.8.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
