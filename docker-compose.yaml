@@ -42,7 +42,7 @@ services:
       DB_NAME_DEV: northwind
       DB_USER_DEV: postgres
       DB_PASS_DEV: postgres
-      DB_SCHEMA_DEV: public
+      DB_SCHEMA_DEV: raw
       DB_THREADS_DEV: 1
       DB_TYPE_DEV: postgres
     volumes:

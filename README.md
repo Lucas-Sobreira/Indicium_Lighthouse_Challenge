@@ -31,3 +31,8 @@ dbt seed
 ``` sql: 
 ALTER SCHEMA public RENAME TO raw
 ```
+
+4) Foi adicionado ao Dockerfile um comando para rodar o "dbt seed" e manter o container UP. 
+``` Dockerfile: 
+CMD dbt seed && tail -f /dev/null
+```

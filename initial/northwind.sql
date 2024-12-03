@@ -1708,7 +1708,12 @@ ALTER TABLE ONLY customer_customer_demo
 ALTER TABLE ONLY employees
     ADD CONSTRAINT fk_employees_employees FOREIGN KEY (reports_to) REFERENCES employees;
 
-    
+--
+-- Renaming Schema to Raw
+-- 
+
+ALTER SCHEMA public RENAME TO raw
+
 --
 -- PostgreSQL database dump complete
 --
