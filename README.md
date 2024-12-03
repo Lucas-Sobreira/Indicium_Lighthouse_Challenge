@@ -1,4 +1,18 @@
+Best Practices of DBT-Core.
+<a href="https://docs.getdbt.com/best-practices/how-we-structure/2-staging">documentação</a>
+
 Baseado em um desafio, resolvi realizar esse projeto e desenvolver em DBT-Core. 
+
+### Dockerfile
+O último comando do Dockerfile, mantém o container do DBT-Core ativo, podendo utilizar o terminal "Exec" através do Docker Desktop. Ou acessar o bash do container utilizando o comando abaixo.
+``` Dockerfile: 
+CMD tail -f /dev/null
+```
+
+Para entrar dentro do bash do Container: 
+``` bash: 
+docker exec -it <container_id> bash 
+```
 
 1) O primeiro desafio, foi a construção do Docker-Compose com as ferramentas Postgres e Pgadmin. Já com a inicialização do projeto, utilizando o arquivo .SQL armazenado na pasta northwind_data; 
 

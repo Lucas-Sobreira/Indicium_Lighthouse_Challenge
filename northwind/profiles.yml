@@ -10,3 +10,18 @@ northwind:
       threads: 1
       type: postgres
       user: postgres
+
+postgres_local:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "http://127.0.0.1"
+      user: postgres
+      password: postgres
+      port: 5432
+      database: postgres
+      db_name: postgres
+      schema: raw
+      threads: 1
+      connect_timeout: 30

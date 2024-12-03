@@ -11,7 +11,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
-      - ./data/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql  # Caminho correto
+      - ./initial/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql  # Caminho correto
       - ./data:/var/lib/postgresql/data  # Persistência de dados
     ports:
       - 5432:5432
