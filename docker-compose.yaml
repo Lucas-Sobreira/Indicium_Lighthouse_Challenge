@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  postgres:
+  db:
     image: postgres   
     environment:
       POSTGRES_USER: postgres
@@ -27,7 +27,7 @@ services:
     ports:
       - 8080:80
     depends_on:
-      - postgres
+      - db
     networks:
       - net
 
@@ -37,7 +37,7 @@ services:
       dockerfile: Dockerfile
     environment:
       DBT_PROFILES_DIR: /northwind
-      DB_HOST_DEV: postgres
+      DB_HOST_DEV: db
       DB_PORT_DEV: 5432
       DB_NAME_DEV: northwind
       DB_USER_DEV: postgres
@@ -52,6 +52,6 @@ services:
     ports: 
       - 8081:8081
     depends_on:
-      - postgres
+      - db
     networks:
       - net

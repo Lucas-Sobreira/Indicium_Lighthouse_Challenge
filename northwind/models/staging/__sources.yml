@@ -1,0 +1,21 @@
+version: 2
+
+sources: 
+  - name: northwind
+    schema: raw
+    freshness:
+      warn_after:
+        count: 24
+        period: hour
+      error_after:
+        count: 48
+        period: hour
+    tables: 
+      - name: order_details
+        description: Detalhes das ordens de pedidos
+      - name: categories
+        description: Detalhes das categorias dos produtos
+      - name: employee_territories
+        description: Tabela auxiliar entre territorios e empregados
+      - name: customers
+        description: Detalhes sobre os clientes

@@ -1,0 +1,20 @@
+models:   
+  - name: stg_order_details
+    description: Detalhes sobre as ordem de pedidos
+    columns: 
+      - name: order_id
+        description: Identificador unico para as ordens
+        data_tests: 
+          - not_null
+      - name: product_id
+        description: Identificador unico para os produtos
+        data_tests: 
+          - not_null
+      - name: discount
+        description: Valor de desconto do valor do produto
+        data_tests:
+          - not_null
+      - name: quantity
+        description: Quantidade de produtos na ordem de pedido
+        data_tests:
+          - not_null

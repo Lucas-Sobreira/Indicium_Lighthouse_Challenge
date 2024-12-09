@@ -1712,7 +1712,7 @@ ALTER TABLE ONLY employees
 -- Renaming Schema to Raw
 -- 
 
-ALTER SCHEMA public RENAME TO raw
+ALTER SCHEMA public RENAME TO raw;
 
 --
 -- PostgreSQL database dump complete

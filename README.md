@@ -36,3 +36,34 @@ ALTER SCHEMA public RENAME TO raw
 ``` Dockerfile: 
 CMD dbt seed && tail -f /dev/null
 ```
+
+5) Criando as Materialized Views utilizando a pasta "models/staging". 
+
+6) Download de Packages para auxiliar nos testes unitários ou outros processos. Basicamente criar um arquivo "packages.yml" especificando quais pacotes gostaria de instalar e rodar um comando DBT.
+<a href="https://docs.getdbt.com/docs/build/packages">link_referencia</a>
+```bash: 
+dbt deps
+```
+
+## Rodando a aplicação 
+1) Fazer clone do repositorio; 
+2) No seu bash executar os comandos: 
+``` bash: 
+docker-compose build
+docker-compose up -d
+```
+3) Dentro do terminal do DBT-Core, executar os comandos:
+- Verificar se está tudo certo com o clone do repositorio:
+``` bash: 
+dbt debug
+```
+
+- Rodar os comandos para criação de tabelas e views no Postgres
+``` bash: 
+dbt seed
+dbt run
+```
+4) Caso queira testar alguma coisa: 
+``` bash: 
+dbt test
+```

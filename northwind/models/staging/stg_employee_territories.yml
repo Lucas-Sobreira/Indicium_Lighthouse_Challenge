@@ -1,0 +1,12 @@
+models:   
+  - name: stg_employee_territories
+    description: Tabela auxiliar entre territorios e empregados
+    columns: 
+      - name: employee_id
+        description: Identificador unico dos empregados
+        data_tests: 
+          - not_null
+      - name: territory_id
+        description: Identificador unico dos territorios
+        data_tests: 
+          - not_null

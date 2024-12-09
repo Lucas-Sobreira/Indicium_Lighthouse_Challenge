@@ -1,0 +1,12 @@
+models:   
+  - name: stg_categories
+    description: Detalhes das categorias dos produtos
+    columns: 
+      - name: category_id
+        description: Identificador unico das categorias dos produtos
+        data_tests: 
+          - not_null
+      - name: category_name
+        description: Nome da categoria
+        data_tests: 
+          - not_null

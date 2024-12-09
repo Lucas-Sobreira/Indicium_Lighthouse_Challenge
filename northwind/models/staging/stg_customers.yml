@@ -1,0 +1,36 @@
+models:   
+  - name: stg_customers
+    description: Detalhes sobre os clientes
+    columns: 
+      - name: customer_id
+        description: Identificador unico dos clientes
+        data_tests: 
+          - not_null
+      - name: company_name
+        description: Nome da empresa
+        data_tests: 
+          - not_null
+      - name: contact_name
+        description: Nome do cliente
+        data_tests: 
+          - not_null
+      - name: address
+        description: Endereço do cliente
+        data_tests: 
+          - not_null
+      - name: city
+        description: Cidade do cliente
+        data_tests: 
+          - not_null
+      - name: postal_code
+        description: Código postal
+        data_tests: 
+          - not_null
+      - name: country
+        description: Pais
+        data_tests: 
+          - not_null
+      - name: phone
+        description: Numero de telefone
+        data_tests: 
+          - not_null

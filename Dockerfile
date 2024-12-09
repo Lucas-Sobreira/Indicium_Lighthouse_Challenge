@@ -12,4 +12,4 @@ WORKDIR /user/app/northwind
 EXPOSE 8081
 
 # Comando para rodar o "dbt seed" e manter o container em execução
-CMD dbt seed && tail -f /dev/null
+CMD tail -f /dev/null
