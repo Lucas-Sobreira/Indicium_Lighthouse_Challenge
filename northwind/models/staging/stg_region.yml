@@ -1,0 +1,13 @@
+models:   
+  - name: stg_region
+    description: Detalhes das regioes
+    columns: 
+      - name: region_id
+        description: Identificador unico das regioes
+        data_tests: 
+          - not_null
+          - unique
+      - name: region_description
+        description: Nome das regioes
+        data_tests: 
+          - not_null

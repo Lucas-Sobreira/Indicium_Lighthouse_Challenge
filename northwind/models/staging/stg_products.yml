@@ -1,0 +1,42 @@
+models:   
+  - name: stg_products
+    description: Detalhes sobre os produtos
+    columns: 
+      - name: product_id
+        description: Identificador unico dos produtos
+        data_tests: 
+          - not_null
+          - unique
+      - name: supplier_id
+        description: Identificador unico dos fornecedores
+        data_tests: 
+          - not_null
+      - name: category_id
+        description: Identificador unico das categorias
+        data_tests: 
+          - not_null
+      - name: unit_price
+        description: Preco do produto
+        data_tests: 
+          - dbt_utils.expression_is_true: 
+              expression: "> 0"     
+      - name: unit_in_stock
+        description: Unidades de produtos em estoque
+        data_tests: 
+          - dbt_utils.expression_is_true: 
+              expression: ">= 0"
+      - name: unit_on_order
+        description: Unidades solicitadas na ordem de pedido
+        data_tests: 
+          - dbt_utils.expression_is_true: 
+              expression: ">= 0"         
+      - name: reorder_level
+        data_tests: 
+          - dbt_utils.expression_is_true: 
+              expression: ">= 0"
+      - name: discontinued
+        description: Valor (1 ou 0) indicando a descontinuidade do produto
+        data_tests: 
+          - dbt_utils.expression_is_true: 
+              expression: ">= 0"              
+          

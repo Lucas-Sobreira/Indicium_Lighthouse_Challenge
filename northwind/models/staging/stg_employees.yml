@@ -1,0 +1,104 @@
+models:   
+  - name: stg_employees
+    description: Detalhes sobre os empregados
+    columns: 
+      - name: employee_id
+        description: Identificador unico dos empregados
+        data_tests: 
+          - not_null
+      - name: last_name
+        description: Sobrenome
+        data_tests: 
+          - not_null
+      - name: first_name
+        description: Primeiro nome
+        data_tests: 
+          - not_null
+      - name: title
+        description: Cargo
+        data_tests: 
+          - not_null
+      - name: birth_date
+        description: Data de nascimento
+        tests: 
+          - not_null
+      - name: hire_date
+        description: Idade de contratacao
+        tests: 
+          - not_null
+      - name: hire_age
+        description: Tempo de contratacao
+        data_tests: 
+          - not_null
+      - name: city
+        description: Cidade
+        data_tests: 
+          - not_null
+      - name: country
+        description: Pais
+        data_tests: 
+          - not_null
+      - name: notes
+        description: Breve resumo do empregado
+        data_tests: 
+          - not_null
+
+unit_tests: 
+  - name: test_date_format
+    description: Checa o formato da data
+    model: stg_employees
+    given: 
+      - input: source('northwind', 'employees')
+        rows: 
+          - {
+              employee_id: 8109,
+              last_name: "Sobreira",
+              first_name: "Lucas",
+              title: "Data Eng.",
+              title_of_courtesy: "Mr.",
+              birth_date: "1997-07-06",
+              hire_date: "2020-01-01",
+              city: "São Paulo",
+              country: "Brazil",
+              notes: "Engenheiro de Dados pleno a 2 anos"
+          }
+          - {
+              employee_id: 8110,
+              last_name: "Andre",
+              first_name: "Carlos",
+              title: "Data Cientist",
+              title_of_courtesy: "Mr.", 
+              birth_date: "1994-03-05",
+              hire_date: "2018-01-01",
+              city: "Campinas",
+              country: "Brazil",
+              notes: "Cientista de dados a mais de 5 anos"
+          }
+    expect:
+      rows: 
+        - {
+            employee_id: 8109,
+            last_name: "Sobreira",
+            first_name: "Lucas",
+            title: "data eng.",
+            title_of_courtesy: "mr.",
+            birth_date: "1997-07-06",
+            hire_date: "2020-01-01",
+            hire_age: "22.42",
+            city: "são paulo",
+            country: "brazil",
+            notes: "Engenheiro de Dados pleno a 2 anos"
+        }
+        - {
+              employee_id: 8110,
+              last_name: "Andre",
+              first_name: "Carlos",
+              title: "data cientist",
+              title_of_courtesy: "mr.",
+              birth_date: "1994-03-05",
+              hire_date: "2018-01-01",
+              hire_age: "23.75",
+              city: "campinas",
+              country: "brazil",
+              notes: "Cientista de dados a mais de 5 anos"
+          }

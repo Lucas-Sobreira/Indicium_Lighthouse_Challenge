@@ -1,0 +1,21 @@
+models:   
+  - name: stg_us_states
+    description: Detalhes sobre os estados dos Estados Unidos
+    columns: 
+      - name: state_id
+        description: Identificador unico dos estados
+        data_tests: 
+          - not_null
+          - unique
+      - name: state_name
+        description: Nome do estado
+        data_tests: 
+          - not_null
+      - name: state_abbr
+        description: Abreviacai do nome do estado
+        data_tests: 
+          - not_null
+      - name: state_region
+        description: Regiao do estado
+        data_tests: 
+          - not_null

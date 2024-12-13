@@ -1,0 +1,41 @@
+models:   
+  - name: stg_suppliers
+    description: Detalhes sobre os fornecedores
+    columns: 
+      - name: supplier_id
+        description: Identificador unico dos fornecedores
+        data_tests: 
+          - not_null
+          - unique
+      - name: company_name
+        description: Nome da empresa exportadora
+        data_tests: 
+          - not_null
+      - name: contact_name
+        description: Nome do contato
+        data_tests: 
+          - not_null
+      - name: address
+        description: Endereço do fornecedor
+        data_tests: 
+          - not_null
+      - name: city
+        description: Cidade do fornecedor
+        data_tests: 
+          - not_null
+      - name: region
+        description: Regiao do fornecedor
+        data_tests: 
+          - not_null
+      - name: postal_code
+        description: Código postal do fornecedor
+        data_tests: 
+          - not_null
+      - name: country
+        description: Pais do fornecedor
+        data_tests: 
+          - not_null
+      - name: phone
+        description: Telefone de contato do fornecedor
+        data_tests: 
+          - not_null

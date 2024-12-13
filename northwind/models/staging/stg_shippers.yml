@@ -1,0 +1,17 @@
+models:   
+  - name: stg_shippers
+    description: Detalhes sobre as empresas exportadoras
+    columns:
+      - name: shipper_id
+        description: Identificador unico das categorias das exportadoras
+        data_tests: 
+          - not_null
+          - unique
+      - name: company_name
+        description: Nome da empresa exportadora
+        data_tests: 
+          - not_null
+      - name: phone
+        description: Telefone da empresa exportadora
+        data_tests: 
+          - not_null

@@ -10,3 +10,5 @@ models:
         description: Nome da categoria
         data_tests: 
           - not_null
+      - name: picture
+        description: imagem da categoria

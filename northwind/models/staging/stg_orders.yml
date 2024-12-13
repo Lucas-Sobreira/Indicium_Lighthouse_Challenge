@@ -1,0 +1,25 @@
+models:   
+  - name: stg_orders
+    description: Informações sobre as ordens de pedidos
+    columns: 
+      - name: order_id
+        description: Identificador unico para as ordens
+        data_tests: 
+          - not_null
+      - name: customer_id
+        description: Identificador unico dos clientes
+        data_tests: 
+          - not_null
+      - name: employee_id
+        description: Identificador unico dos empregados
+        data_tests:
+          - not_null
+      - name: ship_via
+        description: Código de identificação da exportadora dos produtos
+        data_tests:
+          - not_null
+      - name: freight
+        description: Valor do frete
+        data_tests:              
+          - dbt_utils.expression_is_true: 
+              expression: "> 0"

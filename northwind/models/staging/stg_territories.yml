@@ -1,0 +1,13 @@
+models:   
+  - name: stg_territories
+    description: Detalhes sobre os cidades
+    columns: 
+      - name: territory_id
+        description: Identificador unico das cidades
+        data_tests: 
+          - not_null
+          - unique
+      - name: region_id
+        description: Identificador unico das regioes
+        data_tests: 
+          - not_null

@@ -15,7 +15,41 @@ sources:
         description: Detalhes das ordens de pedidos
       - name: categories
         description: Detalhes das categorias dos produtos
-      - name: employee_territories
-        description: Tabela auxiliar entre territorios e empregados
+        config: 
+          column_types:
+            picture: binary
       - name: customers
         description: Detalhes sobre os clientes
+      - name: employee_territories
+        description: Tabela auxiliar entre territorios e empregados
+      - name: employees
+        description: Detalhes sobre os empregados
+        config: 
+          column_types:
+            birth_date: date
+            hire_date: date
+            hire_age: smallint
+      - name: orders
+        description: Detalhes sobre os empregados
+        config: 
+          column_types: 
+            freight: float
+      - name: products
+        description: Detalhes sobre os produtos
+        config: 
+          column_types:
+            unit_price: float
+            unit_in_stock: smallint
+            unit_on_order: smallint
+            reorder_level: smallint
+            discontinued: smallint
+      - name: region
+        description: Regiões
+      - name: shippers
+        description: Detalhes sobre as empresas exportadoras
+      - name: suppliers
+        description: Detalhes sobre os fornecedores
+      - name: territories
+        description: Detalhes sobre os cidades
+      - name: us_states
+        description: Detalhes sobre os estados dos Estados Unidos
