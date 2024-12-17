@@ -1,0 +1,30 @@
+models:   
+  - name: delivery
+    description: Relatorio que mostra a quantidade de dias para entrega e a distância entre distribuidor e cliente final.
+    columns: 
+      - name: company_name
+        description: Nome da empresa distribuidora 
+        data_tests: 
+          - not_null
+      - name: ship_country
+        description: Pais da empresa distribuidora
+        data_tests: 
+          - not_null
+      - name: ship_city
+        description: Cidade da empresa distribuidora
+        data_tests: 
+          - not_null
+      - name: customer_country
+        description: Pais da empresa cliente
+        data_tests: 
+          - not_null
+      - name: customer_city
+        description: Cidade da empresa cliente
+        data_tests: 
+          - not_null
+      - name: days_delivery
+        description: Quantidade de dias que demorou para a entrega do produto
+        data_tests: 
+          - not_null
+          - dbt_utils.expression_is_true: 
+              expression: "> 0"

@@ -1,0 +1,19 @@
+models:   
+  - name: qtd_categories_country
+    description: Relatorio de quantidade de produtos vendidos por categoria e pais
+    columns: 
+      - name: quantity_per_category_country
+        description: Quantidade de produtos      
+        data_tests: 
+          - dbt_utils.expression_is_true: 
+              expression: "> 0"
+      - name: category_name
+        description: Nome da categoria
+        data_tests: 
+          - not_null
+      - name: customer_country
+        description: Pais do cliente
+        data_tests: 
+          - not_null
+      - name: customer_region
+        description: Regiao do cliente

@@ -20,12 +20,12 @@ models:
         data_tests: 
           - dbt_utils.expression_is_true: 
               expression: "> 0"     
-      - name: unit_in_stock
+      - name: units_in_stock
         description: Unidades de produtos em estoque
         data_tests: 
           - dbt_utils.expression_is_true: 
               expression: ">= 0"
-      - name: unit_on_order
+      - name: units_on_order
         description: Unidades solicitadas na ordem de pedido
         data_tests: 
           - dbt_utils.expression_is_true: 
